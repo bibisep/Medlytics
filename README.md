@@ -141,8 +141,7 @@ O ambiente do Airflow foi executado com **Docker**, permitindo organizar os serv
 A implementação utilizada no projeto pode ser encontrada em:
 
 ```text
-medlytics-pipeline/
-└── airflow/
+medlytics-airflow/
     ├── dags/
     │   └── medlytics_pipeline.py
     └── docker-compose.yaml
@@ -194,12 +193,13 @@ O **Oracle Autonomous AI Database** faz parte da arquitetura de dados do Medlyti
 
 O ambiente Oracle foi utilizado para estruturar e trabalhar com dados relacionados ao projeto, incluindo tabelas hospitalares e consultas SQL.
 
-O repositório também disponibiliza os **scripts DDL** utilizados para representar a estrutura das tabelas.
+O repositório também disponibiliza os **scripts DDL e DML** utilizados para representar a estrutura das tabelas.
 
 ```text
 database/
 └── sql/
     └── ddl/
+    └── dml/
 ```
 
 ---
@@ -212,7 +212,6 @@ Os scripts relacionados ao Select AI utilizados durante o desenvolvimento estão
 
 ```text
 database/
-└── sql/
     └── select-ai/
 ```
 
@@ -242,7 +241,7 @@ O arquivo final do projeto está disponível no diretório:
 
 ```text
 power-bi/
-└── Medlytics.pbix
+└── Medlytics_bifinal.pbix
 ```
 
 ---
@@ -415,12 +414,12 @@ Medlytics/
 │   ├── medlytics-logo.jpeg
 │   └── arquitetura.png
 │
+│├── medlytics-airflow/
+│    ├── dags/
+│    │   └── medlytics_pipeline.py
+│    └── docker-compose.yaml
+│
 ├── medlytics-pipeline/
-│   ├── airflow/
-│   │   ├── dags/
-│   │   │   └── medlytics_pipeline.py
-│   │   └── docker-compose.yaml
-│   │
 │   └── data/
 │       ├── bronze/
 │       │   └── Leitos_2026.csv
@@ -432,7 +431,13 @@ Medlytics/
 ├── database/
 │   └── sql/
 │       ├── ddl/
-│       └── select-ai/
+│       │   └── 1tscpv_script_ddl_medlytics.sql
+│       │   └── ddl_medlytics.sql
+|       |── dml/
+│       │   └── 1tscpv_script_dml_medlytics.sql
+│       │   └── dml_medlytics.sql
+│   └── select-ai/
+│       └── select_ia.sql
 │
 ├── power-bi/
 │   └── Medlytics.pbix
