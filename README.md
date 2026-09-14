@@ -459,3 +459,63 @@ Algumas limitações devem ser consideradas:
 - os dados utilizados não representam necessariamente a situação hospitalar em tempo real;
 - a solução não substitui sistemas oficiais de regulação hospitalar;
 - os indicadores não devem ser utilizados isoladamente para decisões clínicas.
+
+
+
+# 🎥 Pitch
+
+<div align="center">
+
+### Conheça o Medlytics em ação
+
+**▶️ Vídeo do Pitch**
+
+🔗https://youtu.be/3FWzO0MRLR4?is=Sv-nYdrZEwYKv3uF
+
+</div>
+
+---
+
+# 📊 Power BI Online
+
+<div align="center">
+
+### Explore o dashboard interativo
+
+**📊 Acessar Power BI**
+
+🔗https://app.powerbi.com/groups/me/reports/7f11a2a3-59c6-4a0a-9fa0-d27dfb234510/d46575be44683e3c8d41?experience=power-bi
+
+</div>
+
+---
+
+# 👥 Equipe
+
+<div align="center">
+
+| Integrante | RM |  GitHub |
+|:---|:---:|:---:|
+| Gabriela Mari da Silva | 572357 | [@bibisep](https://github.com/bibisep) |
+| Julia Gomes da Cruz | 572494 | [@juliacruz03](https://github.com/juliacruz03) |
+| Maria Eduarda Campos da Silva | 569546 | [@meduarsc](https://github.com/meduarsc) |
+
+</div>
+
+---
+
+<div align="center">
+
+## 🏥 MEDLYTICS
+
+### Inteligência que conecta dados, saúde e decisão.
+
+**FIAP | Data Science | Challenge Oracle | 2026**
+
+<br>
+
+`Data Engineering` • `Analytics` • `Oracle` • `Power BI` • `AI`
+
+💚
+
+</div>
