@@ -1,8 +1,10 @@
 <div align="center">
-  <img src="assets/medlytics%20logo.jpeg" width="420" alt="Logo Medlytics">
-</div>
+
+<img src="assets/medlytics%20logo.jpeg" width="420" alt="Medlytics Logo">
 
 <br>
+
+# 🏥 MEDLYTICS
 
 ### Painel Inteligente de Acesso Hospitalar e Perfil de Atendimento
 
@@ -23,203 +25,243 @@
 
 ---
 
-## 🏥 Sobre o Medlytics
+## 📌 Sobre o projeto
 
 O **Medlytics** é uma solução de inteligência de dados desenvolvida para apoiar a análise da estrutura hospitalar e do perfil de atendimento do Sistema Único de Saúde (SUS).
 
-A solução integra diferentes fontes de dados da área da saúde, organiza essas informações em uma arquitetura de dados estruturada e disponibiliza indicadores por meio de dashboards interativos.
+O projeto integra diferentes fontes de dados da área da saúde, realiza o tratamento e a organização dessas informações por meio de um pipeline de dados e disponibiliza indicadores em dashboards interativos.
 
-O objetivo é transformar grandes volumes de dados hospitalares em informações mais acessíveis para gestores e profissionais da saúde, permitindo analisar aspectos como distribuição de leitos, estrutura de UTIs, internações, diagnósticos, CIDs e diferenças estruturais entre regiões.
+A solução permite analisar aspectos como distribuição de estabelecimentos, leitos, estrutura de UTIs, internações, diagnósticos, CIDs e diferenças estruturais entre regiões.
 
-> **Dados dispersos → dados tratados → informação → análise → apoio à decisão**
+> **Dados dispersos → Dados tratados → Informação → Análise → Apoio à decisão**
 
 ---
 
-## 🎯 O problema
+# 🎯 O Problema
 
 O sistema público de saúde gera grandes volumes de dados provenientes de diferentes fontes e sistemas.
 
-Essas informações podem estar distribuídas entre bases distintas, dificultando a análise integrada da infraestrutura hospitalar e do perfil de atendimento.
+Quando essas informações permanecem distribuídas entre bases distintas, a análise integrada da infraestrutura hospitalar e do perfil de atendimento se torna mais complexa.
 
-Entre os desafios analisados pelo projeto estão:
+O Medlytics busca reduzir essa fragmentação por meio de uma solução capaz de consolidar, tratar e transformar esses dados em informações analíticas.
+
+Entre os principais pontos analisados estão:
 
 - distribuição de estabelecimentos hospitalares;
-- quantidade de leitos existentes e destinados ao SUS;
+- quantidade de leitos existentes;
+- quantidade de leitos destinados ao SUS;
 - estrutura de leitos de UTI;
 - diferenças estruturais entre municípios e regiões;
 - volume de internações;
 - principais diagnósticos e CIDs;
-- visualização consolidada de indicadores hospitalares;
-- rastreabilidade e governança dos dados utilizados.
-
-O **Medlytics** busca centralizar essas informações em uma solução analítica integrada.
+- governança e rastreabilidade dos dados.
 
 ---
 
-## 💡 A solução
+# 💡 A Solução
 
-O Medlytics foi estruturado em diferentes componentes que trabalham em conjunto durante o ciclo de dados.
+O Medlytics foi estruturado em diferentes componentes que trabalham em conjunto durante o ciclo dos dados.
 
 | Componente | Função |
-|:---|:---|
-| 🗃️ **Fontes de Dados** | Fornecimento dos dados hospitalares e estruturais |
-| ⚙️ **Engenharia de Dados** | Ingestão, limpeza, transformação e organização |
-| 🥉🥈🥇 **Arquitetura Medallion** | Organização dos dados em Bronze, Silver e Gold |
-| 🗄️ **Oracle** | Armazenamento e gerenciamento dos dados |
-| 📊 **Power BI** | Construção dos dashboards e indicadores |
-| 🤖 **Aly** | Interface de consulta em linguagem natural |
-| 🛡️ **Governança** | Segurança, qualidade, rastreabilidade e ética |
+|---|---|
+| 🗃️ **Fontes de Dados** | Dados hospitalares, estruturais e de internações |
+| ⚙️ **Engenharia de Dados** | Ingestão, tratamento e transformação |
+| 🥉🥈🥇 **Medallion Architecture** | Organização em Bronze, Silver e Gold |
+| 🌬️ **Apache Airflow** | Orquestração do pipeline |
+| 🐳 **Docker** | Execução e isolamento do ambiente Airflow |
+| 🗄️ **Oracle** | Armazenamento e consultas aos dados |
+| 📊 **Power BI** | Dashboards e indicadores |
+| 🤖 **Aly** | Interação com dados em linguagem natural |
+| 🛡️ **Governança** | Qualidade, ética, segurança e rastreabilidade |
 
 ---
 
-# 🏗️ Arquitetura da Solução
-
-A arquitetura do Medlytics foi projetada para representar o fluxo completo dos dados, desde as fontes até a disponibilização das informações aos usuários finais.
+# 🏗️ Arquitetura
 
 <div align="center">
-  <img src="assets/arquitetura.png" width="100%" alt="Arquitetura Medlytics">
+
+<img src="assets/arquitetura.png" width="100%" alt="Arquitetura da solução Medlytics">
+
 </div>
 
 ---
 
 # 🔄 Pipeline de Dados
 
-O pipeline do Medlytics organiza o processamento dos dados em diferentes etapas, permitindo separar dados brutos, tratados e preparados para consumo analítico.
+O pipeline do Medlytics foi desenvolvido para organizar o processamento dos dados desde sua forma bruta até a disponibilização para análises.
 
-O fluxo segue o conceito da **Arquitetura Medallion**.
+A estrutura segue o conceito de **Medallion Architecture**, dividindo o processamento em três camadas.
 
 ### 🥉 Bronze
 
-A camada Bronze recebe os dados próximos ao formato original das fontes.
+A camada **Bronze** preserva os dados próximos ao formato original da fonte.
 
-Seu objetivo é preservar os dados brutos antes das principais transformações.
+Nela são armazenados os dados brutos antes da aplicação das principais transformações.
 
 ### 🥈 Silver
 
-Na camada Silver são realizadas etapas de tratamento e preparação, incluindo:
+A camada **Silver** contém os dados após processos de limpeza e preparação.
 
-- limpeza dos dados;
-- tratamento de valores;
+Entre os tratamentos realizados estão:
+
 - padronização;
 - conversão de tipos;
-- validações;
-- preparação de atributos;
+- tratamento de dados;
+- validação dos registros;
+- preparação dos atributos;
 - criação de informações necessárias às análises.
 
 ### 🥇 Gold
 
-A camada Gold representa os dados preparados para consumo analítico.
+A camada **Gold** contém os dados preparados para consumo analítico.
 
-É utilizada como base para indicadores, análises e visualizações do projeto.
+Essa camada é utilizada como uma das bases para os indicadores e visualizações desenvolvidos no projeto.
 
-Entre os atributos utilizados estão informações relacionadas a:
+Entre os atributos analíticos preparados durante o processamento estão informações relacionadas a:
 
 - estabelecimentos;
-- municípios e regiões;
+- municípios;
+- regiões;
 - leitos existentes;
 - leitos SUS;
 - UTIs;
-- internações;
-- diagnósticos;
-- CIDs.
+- percentual de leitos SUS;
+- presença de estrutura de UTI.
 
 ---
 
-## ⚙️ Orquestração com Apache Airflow
+# 🌬️ Apache Airflow
 
-O **Apache Airflow** é utilizado no projeto para representar e executar a orquestração do pipeline de dados.
+O **Apache Airflow** foi utilizado para orquestrar o pipeline de dados do Medlytics.
 
-A DAG do Medlytics organiza as etapas do processamento e permite acompanhar a execução das tarefas do pipeline.
+A DAG desenvolvida no projeto organiza as etapas de processamento e permite acompanhar a execução das tarefas responsáveis pela transformação dos dados.
 
-O ambiente foi executado utilizando **Docker**, permitindo o isolamento dos serviços necessários para a execução do Airflow.
+O ambiente do Airflow foi executado com **Docker**, permitindo organizar os serviços necessários para execução do pipeline em containers.
+
+A implementação utilizada no projeto pode ser encontrada em:
+
+```text
+medlytics-pipeline/
+└── airflow/
+    ├── dags/
+    │   └── medlytics_pipeline.py
+    └── docker-compose.yaml
+```
 
 ---
 
 # 🗃️ Fontes de Dados
 
-O Medlytics utiliza dados relacionados à infraestrutura hospitalar e às internações do SUS.
-
-### 🏥 CNES
+## 🏥 CNES
 
 O **Cadastro Nacional de Estabelecimentos de Saúde (CNES)** fornece informações relacionadas à infraestrutura dos estabelecimentos de saúde.
 
-No projeto, são utilizados atributos relacionados a:
+No Medlytics são utilizados atributos relacionados a:
 
-- estabelecimentos de saúde;
-- município;
-- região;
+- estabelecimentos;
+- municípios;
+- regiões;
 - tipo de gestão;
 - leitos existentes;
 - leitos SUS;
 - UTIs;
 - características dos estabelecimentos.
 
-### 📋 SIH/SUS
+## 📋 SIH/SUS
 
-O **Sistema de Informações Hospitalares do SUS (SIH/SUS)** é utilizado na frente de análise de internações hospitalares.
+O **Sistema de Informações Hospitalares do SUS (SIH/SUS)** compõe a frente de análise das internações hospitalares.
 
-Os dados permitem análises relacionadas a:
+Esses dados permitem explorar informações relacionadas a:
 
 - internações;
 - diagnósticos;
 - doenças;
 - códigos CID;
 - distribuição regional;
-- indicadores hospitalares.
+- indicadores relacionados às internações.
 
-### 🗺️ Dados geográficos
+## 🗺️ Dados geográficos
 
-Dados territoriais também são utilizados para permitir a construção das visualizações geográficas presentes no projeto, especialmente o mapa estrutural das regiões administrativas do Estado de São Paulo.
+O projeto também utiliza dados geográficos para construção das análises territoriais, incluindo as **Regiões Administrativas do Estado de São Paulo**.
+
+Esses dados permitem relacionar municípios às respectivas regiões e construir as visualizações geográficas utilizadas no Power BI.
 
 ---
 
 # 🗄️ Oracle Autonomous AI Database
 
-O projeto utiliza o **Oracle Autonomous AI Database** como parte da arquitetura de armazenamento e gerenciamento dos dados.
+O **Oracle Autonomous AI Database** faz parte da arquitetura de dados do Medlytics.
 
-A utilização do Oracle permite estruturar os dados tratados em ambiente de banco de dados e disponibilizá-los para consultas e análises.
+O ambiente Oracle foi utilizado para estruturar e trabalhar com dados relacionados ao projeto, incluindo tabelas hospitalares e consultas SQL.
 
-A arquitetura proposta também considera recursos de inteligência artificial disponibilizados pelo ecossistema Oracle para futuras evoluções da solução.
+O repositório também disponibiliza os **scripts DDL** utilizados para representar a estrutura das tabelas.
+
+```text
+database/
+└── sql/
+    └── ddl/
+```
+
+---
+
+# ✨ Oracle Select AI
+
+O projeto também explorou recursos do **Oracle Select AI**, permitindo trabalhar com consultas em linguagem natural sobre informações armazenadas no ambiente Oracle.
+
+Os scripts relacionados ao Select AI utilizados durante o desenvolvimento estão disponíveis em:
+
+```text
+database/
+└── sql/
+    └── select-ai/
+```
+
+Essa frente representa uma das possibilidades de evolução da interação inteligente com os dados dentro da arquitetura do Medlytics.
 
 ---
 
 # 📊 Power BI
 
-O **Power BI** é responsável pela camada de visualização e análise do Medlytics.
+O **Power BI** representa a camada de visualização e análise do Medlytics.
 
-O dashboard foi desenvolvido seguindo uma identidade visual própria, utilizando tons de azul escuro e verde associados à marca do projeto.
-
-A solução permite que gestores explorem os indicadores por meio de filtros, mapas, gráficos, rankings e consultas em linguagem natural.
+O dashboard foi desenvolvido seguindo a identidade visual do projeto e reúne indicadores, mapas, rankings, filtros e análises relacionadas à estrutura hospitalar e às internações.
 
 ### Principais análises
 
-- 🏥 quantidade de estabelecimentos;
-- 🛏️ total de leitos existentes;
+- 🏥 estabelecimentos hospitalares;
+- 🛏️ leitos existentes;
 - 💚 leitos destinados ao SUS;
 - 🚑 estrutura de UTIs;
 - 🗺️ distribuição regional;
 - ⚠️ risco estrutural relativo;
 - 🦠 internações por doença;
-- 🧬 internações por CID;
+- 🧬 análises por CID;
 - 📍 comparações entre regiões e municípios.
 
----
+O arquivo final do projeto está disponível no diretório:
 
-## 📈 Dashboard Geral
-
-O **Dashboard Geral** apresenta uma visão consolidada dos principais indicadores da solução.
-
-Entre os indicadores disponibilizados estão estabelecimentos, percentual de leitos SUS, leitos de UTI e total de leitos SUS.
-
-A página também reúne informações sobre risco estrutural regional e volume de internações por doença.
+```text
+power-bi/
+└── Medlytics.pbix
+```
 
 ---
 
-## 🗺️ Mapa de Risco Estrutural
+# 📈 Dashboard Geral
 
-O mapa permite comparar a estrutura hospitalar entre diferentes regiões administrativas do Estado de São Paulo.
+O **Dashboard Geral** oferece uma visão consolidada dos principais indicadores analisados pelo Medlytics.
 
-As regiões são classificadas visualmente em:
+A página reúne informações sobre a infraestrutura hospitalar e permite visualizar rapidamente indicadores relacionados a estabelecimentos, leitos SUS e estrutura de UTI.
+
+Também são apresentadas análises relacionadas ao risco estrutural regional e ao volume de internações por doença.
+
+---
+
+# 🗺️ Mapa de Risco Estrutural
+
+O mapa permite comparar a estrutura hospitalar entre as diferentes **Regiões Administrativas do Estado de São Paulo**.
+
+A classificação utiliza três níveis visuais:
 
 🔴 **Crítico**
 
@@ -227,22 +269,22 @@ As regiões são classificadas visualmente em:
 
 🟢 **Estável**
 
-A classificação representa um **indicador estrutural relativo**, calculado a partir dos dados disponíveis no projeto.
+O indicador representa uma **classificação estrutural relativa**, construída a partir dos dados disponíveis no projeto.
 
-Ela não representa risco clínico nem disponibilidade hospitalar em tempo real.
+Ele não representa risco clínico ou disponibilidade hospitalar em tempo real.
 
 ---
 
-## 🧬 Internações por CID
+# 🧬 Internações por CID
 
-A área de internações permite analisar o perfil dos diagnósticos presentes na base.
+A área de internações permite analisar o perfil dos diagnósticos presentes nos dados utilizados pelo projeto.
 
-São disponibilizadas informações como:
+Entre as informações analisadas estão:
 
 - total de internações;
 - principais doenças;
 - códigos CID;
-- distribuição das internações por região;
+- distribuição por região;
 - variação dos indicadores disponíveis na base.
 
 ---
@@ -251,35 +293,35 @@ São disponibilizadas informações como:
 
 <div align="center">
 
-### Sua interface inteligente para explorar os dados do Medlytics.
+### Dados complexos. Perguntas simples.
 
 </div>
 
-A **Aly** foi criada como uma interface de interação em linguagem natural dentro da experiência do Medlytics.
+A **Aly** é a interface de interação em linguagem natural desenvolvida para a experiência do Medlytics.
 
-Em vez de depender exclusivamente da navegação entre diferentes gráficos, o gestor pode realizar perguntas diretamente sobre os dados.
+Em vez de depender exclusivamente da navegação entre diferentes páginas e gráficos, o gestor pode realizar perguntas diretamente sobre os dados.
 
 Exemplos:
 
-> **Quantos leitos existem em Campinas?**
+> 💬 **Quantos leitos existem em Campinas?**
 
-> **Qual região possui maior número de internações?**
+> 💬 **Qual região possui maior número de internações?**
 
-> **Quais são os CIDs mais frequentes?**
+> 💬 **Quais são os CIDs mais frequentes?**
 
-Na versão demonstrada do projeto, essa experiência utiliza o recurso de **Perguntas e Respostas (Q&A) do Power BI**, conectado ao modelo semântico utilizado pelo dashboard.
+Na demonstração final do projeto, a experiência interativa utiliza o recurso de **Perguntas e Respostas (Q&A) do Power BI**, conectado ao modelo semântico utilizado pelo dashboard.
 
 Isso permite transformar perguntas em linguagem natural em respostas e visualizações analíticas.
 
 ---
 
-# 🔍 Rastreabilidade dos Dados
+# 🔍 Rastreabilidade
 
-O Medlytics também possui uma área dedicada às **Fontes de Dados**, permitindo apresentar de onde vêm as informações utilizadas pela solução.
+O Medlytics possui uma área dedicada às **Fontes de Dados**, permitindo apresentar a origem das informações utilizadas na solução.
 
-Essa camada foi incluída para aumentar a transparência e a rastreabilidade das análises.
+Essa camada contribui para a transparência e rastreabilidade das análises.
 
-A proposta é que o usuário não apenas visualize um indicador, mas também consiga compreender quais dados sustentam aquela informação.
+A proposta é permitir que o usuário não apenas visualize os indicadores, mas também compreenda quais dados sustentam as informações apresentadas.
 
 ---
 
@@ -300,11 +342,11 @@ O projeto aborda conceitos relacionados a:
 - ética aplicada ao uso de dados e IA;
 - proposta do **Oracle Ethics Shield (OES)**.
 
-Esses elementos buscam garantir que o uso dos dados seja realizado de maneira responsável, transparente e segura.
+O objetivo é incorporar transparência, responsabilidade e segurança ao ciclo de utilização dos dados.
 
 ---
 
-# 🧰 Tecnologias Utilizadas
+# 🧰 Tecnologias
 
 <div align="center">
 
@@ -333,36 +375,34 @@ Esses elementos buscam garantir que o uso dos dados seja realizado de maneira re
 
 ---
 
-# 🧪 Qualidade e Tratamento dos Dados
+# 🧪 Qualidade dos Dados
 
-Durante o desenvolvimento do pipeline foram realizadas etapas de validação e tratamento dos dados.
+Durante o desenvolvimento do pipeline foram realizadas etapas de tratamento e validação.
 
 Entre elas:
 
 - verificação de duplicidades;
 - tratamento de tipos;
 - padronização das informações;
-- validação dos registros;
+- validação de registros;
 - transformação dos dados;
 - criação de atributos analíticos;
-- separação entre dados brutos, tratados e analíticos.
+- separação entre dados brutos, tratados e preparados para análise.
 
-Essas etapas permitem que a camada Gold seja utilizada de maneira mais segura pelas ferramentas de análise.
+Essas etapas permitem estruturar uma camada Gold adequada ao consumo analítico.
 
 ---
 
-# ⚠️ Limitações
+# 🚀 Evolução do Projeto
 
-O Medlytics foi desenvolvido como uma solução acadêmica de **análise e apoio à tomada de decisão**.
+O Medlytics foi desenvolvido de forma incremental ao longo das quatro Sprints do Challenge.
 
-Por isso, algumas limitações devem ser consideradas:
-
-- leitos cadastrados não significam leitos disponíveis em tempo real;
-- o percentual de leitos SUS representa a proporção de leitos destinados ao SUS, e não a taxa de ocupação;
-- o risco apresentado nas análises geográficas é um **indicador estrutural relativo**;
-- os dados utilizados não representam necessariamente a situação hospitalar em tempo real;
-- a solução não substitui sistemas oficiais de regulação hospitalar;
-- os indicadores não devem ser utilizados isoladamente para decisões clínicas.
+| Sprint | Etapa | Objetivo |
+|:---:|---|---|
+| **Sprint 1** | 💡 Concepção | Definição do problema, proposta e ideia inicial do Medlytics |
+| **Sprint 2** | 🏗️ Arquitetura | Desenvolvimento e definição da arquitetura da solução |
+| **Sprint 3** | ⚙️ Desenvolvimento | Implementação técnica e entregas específicas das disciplinas |
+| **Sprint 4** | 🚀 Entrega Final | Consolidação da solução, Power BI, apresentação e Pitch |
 
 ---
 
@@ -371,87 +411,46 @@ Por isso, algumas limitações devem ser consideradas:
 ```text
 Medlytics/
 │
-├── dags/
-│   └── medlytics_pipeline.py
+├── assets/
+│   ├── medlytics-logo.jpeg
+│   └── arquitetura.png
 │
-├── data/
-│   ├── bronze/
-│   ├── silver/
-│   └── gold/
+├── medlytics-pipeline/
+│   ├── airflow/
+│   │   ├── dags/
+│   │   │   └── medlytics_pipeline.py
+│   │   └── docker-compose.yaml
+│   │
+│   └── data/
+│       ├── bronze/
+│       │   └── Leitos_2026.csv
+│       ├── silver/
+│       │   └── leitos_tratado.csv
+│       └── gold/
+│           └── RM572357.csv
 │
 ├── database/
 │   └── sql/
+│       ├── ddl/
+│       └── select-ai/
 │
 ├── power-bi/
 │   └── Medlytics.pbix
-│
-├── docs/
-│   ├── arquitetura/
-│   └── documentacao/
-│
-├── assets/
-│   ├── medlytics-logo.jpeg
-│   ├── arquitetura-medlytics.png
-│   ├── dashboard-geral.png
-│   ├── mapa-risco.png
-│   ├── internacoes-cid.png
-│   └── aly.png
-│
+
 └── README.md
 ```
 
 ---
 
-# 🎥 Pitch do Projeto
+# ⚠️ Limitações
 
-O vídeo apresenta a proposta do Medlytics, sua arquitetura, dashboards, funcionalidades e a experiência de interação com a Aly.
+O Medlytics foi desenvolvido como uma solução acadêmica de **análise e apoio à tomada de decisão**.
 
-**Vídeo do Pitch:**
+Algumas limitações devem ser consideradas:
 
-> 🔗 https://youtu.be/3FWzO0MRLR4?is=Sv-nYdrZEwYKv3uF
-
----
-
-# 📊 Acesso ao Power BI
-
-Acesse a versão publicada do dashboard Medlytics:
-
-**Power BI:**
-
-> 🔗 https://app.powerbi.com/groups/me/reports/7f11a2a3-59c6-4a0a-9fa0-d27dfb234510/d46575be44683e3c8d41?experience=power-bi
-
----
-
-# 👥 Equipe
-
-Projeto desenvolvido por:
-
-| Integrante | RM |
-|:---|:---:|
-| Gabriela Mari da Silva | 572357 |
-| Julia Gomes da Cruz | 572494 |
-| Maria Eduarda Campos da Silva | 569546 |
-
----
-
-# 🎓 Projeto Acadêmico
-
-<div align="center">
-
-**FIAP | Data Science**
-
-**Challenge Oracle + FIAP | 2026**
-
-<br>
-
-### 🏥 MEDLYTICS
-
-**Inteligência que conecta dados, saúde e decisão.**
-
-<br>
-
-`Data Engineering` • `Analytics` • `Oracle` • `Power BI` • `AI`
-
-💚
-
-</div>
+- leitos cadastrados não significam leitos disponíveis em tempo real;
+- percentual de leitos SUS não representa taxa de ocupação;
+- o risco apresentado nas análises geográficas é um **indicador estrutural relativo**;
+- os dados utilizados não representam necessariamente a situação hospitalar em tempo real;
+- a solução não substitui sistemas oficiais de regulação hospitalar;
+- os indicadores não devem ser utilizados isoladamente para decisões clínicas.
