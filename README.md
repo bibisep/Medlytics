@@ -412,7 +412,7 @@ O vídeo apresenta a proposta do Medlytics, sua arquitetura, dashboards, funcion
 
 **Vídeo do Pitch:**
 
-> 🔗
+> 🔗 https://youtu.be/3FWzO0MRLR4?is=Sv-nYdrZEwYKv3uF
 
 ---
 
@@ -422,7 +422,7 @@ Acesse a versão publicada do dashboard Medlytics:
 
 **Power BI:**
 
-> 🔗
+> 🔗 https://app.powerbi.com/groups/me/reports/7f11a2a3-59c6-4a0a-9fa0-d27dfb234510/d46575be44683e3c8d41?experience=power-bi
 
 ---
 
@@ -432,9 +432,9 @@ Projeto desenvolvido por:
 
 | Integrante | RM |
 |:---|:---:|
-|  |  |
-|  |  |
-|  |  |
+| Gabriela Mari da Silva | 572357 |
+| Julia Gomes da Cruz | 572494 |
+| Maria Eduarda Campos da Silva | 569546 |
 
 ---
 
