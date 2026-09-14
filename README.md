@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/arquitetura.png" width="100%" alt="Arquitetura Medlytics">
+  <img src="assets/medlytics%20logo.jpeg" width="420" alt="Logo Medlytics">
 </div>
 
 <br>
