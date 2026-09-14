@@ -1,10 +1,8 @@
 <div align="center">
-
-<img src="assets/medlytics-logo.jpeg" width="420" alt="Medlytics Logo">
+  <img src="assets/arquitetura.png" width="100%" alt="Arquitetura Medlytics">
+</div>
 
 <br>
-
-# MEDLYTICS
 
 ### Painel Inteligente de Acesso Hospitalar e Perfil de Atendimento
 
@@ -79,9 +77,7 @@ O Medlytics foi estruturado em diferentes componentes que trabalham em conjunto 
 A arquitetura do Medlytics foi projetada para representar o fluxo completo dos dados, desde as fontes até a disponibilização das informações aos usuários finais.
 
 <div align="center">
-
-<img src="assets/arquitetura-medlytics.png" width="100%" alt="Arquitetura Medlytics">
-
+  <img src="assets/arquitetura.png" width="100%" alt="Arquitetura Medlytics">
 </div>
 
 ---
